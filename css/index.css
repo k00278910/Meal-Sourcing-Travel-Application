@@ -3,17 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 12px;
     line-height: 1.9;
+    background-color: whitesmoke;
 }
 
 /* style navbar items */
 a{
-    color: #fff;
+    color: whitesmoke;
     text-decoration: none;
 }
 /* remove style (bullet point) from nav list items */
@@ -28,8 +30,8 @@ li{
 }
 
 header{
-    background-color: #07da78;
-    color: white;
+    background-color: green;
+    color: whitesmoke;
     padding: 0.5rem,1rem;
 }
 
@@ -58,12 +60,34 @@ justify-content: center;
 
 /* must not display burger menu initially */
 .burger{
-    display: none;
+    /* display: none; */
+    margin-top: 50px;
 }
 /* style burger menu */
 .burger div{
-    background-color: white;
+    background-color: green;
     width: 28px;
     height: 5px;
     margin: 0 0 8px 0;
+}
+
+.content{
+    margin: 2rem 0;
+}
+.btn{
+    padding: 0.5rem 2rem;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+img {
+    border: 3px solid green;
+}
+
+.btn:hover{
+    opacity: 0.8;
 }
