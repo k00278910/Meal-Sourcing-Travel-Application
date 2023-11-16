@@ -1,0 +1,58 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* style navbar items */
+a{
+    color: #fff;
+    text-decoration: none;
+}
+/* remove style (bullet point) from nav list items */
+li{
+    list-style: none;
+}
+
+.container{
+    width: 75%;
+    max-width: 1120px;
+    margin: auto;
+}
+
+header{
+    background-color: #07da78;
+    color: white;
+    padding: 0.5rem,1rem;
+}
+
+.header{
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+}
+
+.nav-links{
+display: flex;
+align-items: center;
+/* centre nav links vertically on header */
+justify-content: center;
+}
+
+.nav-links li{
+    margin: 0 1rem;
+    font-size: 20px;
+}
+
+.header h3{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
