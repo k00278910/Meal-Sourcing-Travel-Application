@@ -8,9 +8,10 @@
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.9;
     background-color: whitesmoke;
+    overflow: hidden;
 }
 
 /* style navbar items */
@@ -60,14 +61,14 @@ justify-content: center;
 
 /* must not display burger menu initially */
 .burger{
-    /* display: none; */
-    margin-top: 50px;
+    display: none;
+    margin-top: 60px;
 }
 /* style burger menu */
 .burger div{
-    background-color: green;
-    width: 28px;
-    height: 5px;
+    background-color: whitesmoke;
+    width: 30px;
+    height: 3px;
     margin: 0 0 8px 0;
 }
 
@@ -81,7 +82,7 @@ justify-content: center;
     color: white;
     border: none;
     outline: none;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 img {
@@ -90,4 +91,28 @@ img {
 
 .btn:hover{
     opacity: 0.8;
+}
+
+/* rule for screens <= 700 pixels */
+
+@media screen and (max-width: 800px) {
+    .burger{
+        display: block;
+        
+    }
+    .nav-links {
+        display: block; 
+        background-color: green;
+        position: absolute;
+        top: 8.8rem;
+        right: -50%;
+    }
+    .nav-links li a:hover {
+        display: block; 
+        color: yellowgreen;
+        transition: all, 0.5s, ease;
+    }
+    
+    
+    
 }
