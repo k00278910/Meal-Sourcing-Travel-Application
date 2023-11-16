@@ -56,3 +56,14 @@ justify-content: center;
     font-size: 1.5rem;
 }
 
+/* must not display burger menu initially */
+.burger{
+    display: none;
+}
+/* style burger menu */
+.burger div{
+    background-color: white;
+    width: 28px;
+    height: 5px;
+    margin: 0 0 8px 0;
+}
