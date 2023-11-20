@@ -2,18 +2,20 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;  
 }
-
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
     line-height: 1.9;
-    background-color: whitesmoke;
-    overflow: hidden;
+    overflow: hidden; 
 }
-
+.main-container{
+    background-color: whitesmoke;
+    width: 75%;
+    max-width: 1120px;
+    margin: auto;
+}
 /* style navbar items */
 a{
     color: whitesmoke;
@@ -23,23 +25,25 @@ a{
 li{
     list-style: none;
 }
-
 .container{
+    width: 75%;
+    max-width: 1120px;
+    margin: auto; 
+}
+
+header{
+    background-color: #39b846;
+    color: whitesmoke;
+    padding: 0.5rem,1rem;
     width: 75%;
     max-width: 1120px;
     margin: auto;
 }
 
-header{
-    background-color: green;
-    color: whitesmoke;
-    padding: 0.5rem,1rem;
-}
-
 .header{
     display: flex;
     align-items: centre;
-    justify-content: space-between;
+    justify-content: space-between;    
 }
 
 .nav-links{
@@ -59,12 +63,6 @@ justify-content: center;
     color: yellowgreen;
     transition: all, 0.5s, ease;
 }
-/* 
-.header h3{
-    font-weight: 400;
-    font-size: 1.5rem;
-} */
-
 /* must not display burger menu initially */
 .burger{
     display: none;
@@ -83,22 +81,134 @@ justify-content: center;
     cursor: pointer;
 }
 
-.content{
+.content-location{
     margin: 2rem 0;
+    background-color: #3ACBE8;
+}
+.content-condition{
+    margin: 2rem 0;
+    background-color:#cff09e;
+}
+.content-mealtime{
+    margin: 2rem 0;
+    background-color: #fbda03;
 }
 .btn{
     padding: 0.5rem 2rem;
     width: 100%;
-    background-color: green;
+    background-color: red;
     color: white;
     border: none;
     outline: none;
     font-size: 16px;
 }
-
-img {
-    border: 3px solid green;
+.header img {
+    border: 3px solid #39b846;
 }
+.content-location {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .location-image {
+    border: 2px solid #3ACBE8; 
+  }
+  .parent-location {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1;  
+    border: 2px solid #3ACBE8; 
+  }
+  .location-text  {
+    color: white; 
+    text-align: center;
+    font-size: 25px;
+    border: 2px solid #3ACBE8;
+    /* width: 100%;  */
+    flex:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .location-menu {
+    font-size: 22px;
+    text-align: center;
+    border: 2px solid #3ACBE8; 
+    padding-right: 5px; 
+    padding-bottom: 30px;
+    flex:auto;
+    height: 130px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .location-menu label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 22px;
+    color: whitesmoke;
+  }
+  .location-menu input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 22px;
+    padding: 0 5px 0 5px;
+  }
+  .location-menu select {
+    width: 10em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 22px;
+  }
+.dropdown{
+    display: inline-block;
+    
+}
+.dropdown button{
+    background-color: hsl(0, 0%, 80%);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    
+}
+.dropdown option{
+    display: block;
+    color: black;
+    text-decoration: none;
+    /* padding: 10px 10px; */
+}
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: hsl(0, 0%, 95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+}
+.dropdown:hover .content{
+    display: block;
+}
+.dropdown:hover button{
+    background-color: hsl(0, 0%, 70%);
+}
+.dropdown option:hover{
+    background-color: hsl(0, 0%, 90%);
+}
+/* ---- */
+.content-condition img {
+    border: 2px solid #39b846;
+    display: flex; 
+  }
+  .content-mealtime img {
+    border: 2px solid #fbda03; 
+    display: flex;
+  }
 
  /* img:hover{ */
     /* opacity: 0.8; */
@@ -110,18 +220,25 @@ img {
     cursor: pointer;
 }
 
+footer{
+    background-color: #39b846;
+    min-height: 130px;
+    width: 75%;
+    max-width: 1120px;
+    margin: auto;
+}
 
 
 /* rule for screens <= 700 pixels */
 
 @media screen and (max-width: 800px) {
+    /* navbar mobile */
     .burger{
-        display: block;
-        
+        display: block; 
     }
     .nav-links {
         display: block; 
-        background-color: green;
+        background-color: #39b846;
         position: absolute;
         top: 8.8rem;
         right: -50%;
@@ -129,22 +246,43 @@ img {
         opacity: 0.9;
         transition: all, 0.5s, ease;
     }
+
     .nav-links li a:hover {
         display: block; 
         color: yellowgreen;
         transition: all, 0.5s, ease;
     }
+
     .show-nav-links{
-        right: 0;
-        
+        right: 165;
     }
 
     .nav-links li{
         height: 15%;
-       font-size: 20px;
+        font-size: 20px;
     }
+
     .burger:hover{
     color: yellowgreen;
+    }
+    /* location container for mobile */
+    .location-image img{
+        padding-top: 20px;
+        padding-left: 100px;  
+    }
+    .dropdown{
+        padding-top: 20px;
+    }
+    .head-container{
+        width: 75%;
+    }
+    /* condition container for mobile */
+    .condition-image img{
+        padding-top: 20px;
+        padding-left: 100px;  
+    }
+    .condition-dropdown{
+        padding-top: 20px;
     }
     
     

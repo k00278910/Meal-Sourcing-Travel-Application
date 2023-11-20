@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
+  <div class="main-container">
   <!-- page header -->
     <header id="main-header">
-      <div class="container">
+      <div class="head-container">
         <div class="header">
           <!-- <h1>Hungry-Hoot</h1> -->
           <img src="images/hungryhoot-logo2.png" alt="hungryhoot logo">
@@ -27,17 +28,52 @@
     </header>
   <!-- section for page content -->
     <section>
+      <!-- container for select location ui -->
       <div class="container">
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio 
-          perferendis quaerat quae magnam reiciendis quos omnis mollitia deserunt 
-          error nam.
+        <div class="content-location">
+          <div class="location-image">
+            <img id="flagImage" src="images/travel.png" alt="Flag Image">
+          </div>
+          <div class="parent-location">
+            <div class="location-text">
+              <h3>Step 1: Select Location</h3>
+            </div> 
+            <div class="location-menu">
+              <div class="dropdown">
+                <select id="country" size=3 onchange="selectedLocation()">
+                  <option value="spain">Spain</option>
+                  <option value="germany">Germany</option>
+                  <option value="italy">Italy</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
-        <button class="btn">Let's get started</button>
       </div>
+
+        <div class="content-condition">
+          <img src="images/pulse-green.png" alt="hungryhoot logo">
+          <!-- <h3>Select Condition</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio 
+              perferendis quaerat quae magnam reiciendis quos omnis mollitia deserunt 
+              error nam.</p> -->
+        </div>
+        <div class="content-mealtime">
+          <img src="images/mealtime.jpg" alt="hungryhoot logo">
+          <!-- <h3>Select Mealtime</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio 
+              perferendis quaerat quae magnam reiciendis quos omnis mollitia deserunt 
+              error nam.</p> -->
+        </div>
+        <button class="btn">Submit</button>
+      </div>
+      
     </section>
-    
+    <footer>
+      footer
+    </footer>
 
     <script src="/js/index.js"></script>
+  </div>
 </body>
 </html>
