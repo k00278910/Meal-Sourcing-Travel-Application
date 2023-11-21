@@ -12,7 +12,7 @@
       <div class="head-container">
         <div class="header">
           <!-- <h1>Hungry-Hoot</h1> -->
-          <img src="images/hungryhoot-logo2.png" alt="hungryhoot logo">
+          <img src="images/hungryhoot-logo.png" alt="hungryhoot logo">
           <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Features</a></li>
@@ -26,11 +26,12 @@
         </div>
       </div>
     </header>
-  <!-- section for page content -->
-    <section>
-      <!-- container for select location ui -->
-      <div class="container">
-        <div class="content-location">
+  
+    <section> <!-- section for page content -->
+      
+      <div class="container"> <!-- container for entire selections -->
+        
+        <div class="content-location">  <!-- container for location selection -->
           <div class="location-image">
             <img id="flagImage" src="images/travel.png" alt="Flag Image">
           </div>
@@ -48,26 +49,50 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div>  <!-- end container for location selection -->
+        
+        <div class="content-condition"> <!-- container for condition selection -->
+          <div class="condition-image">
+            <img id="conditionImage" src="images/pulse-green.png" alt="Condition Image">
+          </div>
+          <div class="parent-condition">
+            <div class="condition-text">
+              <h3>Step 2: Select Condition</h3>
+            </div> 
+            <div class="condition-menu">
+              <div class="dropdown">
+                <select id="condition" size=3 onchange="selectedCondition()">
+                  <option value="cholesterol">High Cholesterol</option>
+                  <option value="eczema">Eczema</option>
+                  <option value="alopecia">Alopecia</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>  <!-- end container for condition selection -->
 
-        <div class="content-condition">
-          <img src="images/pulse-green.png" alt="hungryhoot logo">
-          <!-- <h3>Select Condition</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio 
-              perferendis quaerat quae magnam reiciendis quos omnis mollitia deserunt 
-              error nam.</p> -->
-        </div>
-        <div class="content-mealtime">
-          <img src="images/mealtime.jpg" alt="hungryhoot logo">
-          <!-- <h3>Select Mealtime</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio 
-              perferendis quaerat quae magnam reiciendis quos omnis mollitia deserunt 
-              error nam.</p> -->
-        </div>
-        <button class="btn">Submit</button>
-      </div>
-      
+        <div class="content-mealtime"> <!-- container for mealtime selection -->
+          <div class="mealtime-image">
+            <img id="mealtimeImage" src="images/mealtime.png" alt="Mealtime Image">
+          </div>
+          <div class="parent-mealtime">
+            <div class="mealtime-text">
+              <h3>Step 3: Select Meal Time</h3>
+            </div> 
+            <div class="mealtime-menu">
+              <div class="dropdown">
+                <select id="mealtime" size=3 onchange="selectedMealtime()">
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>  <!-- end container for mealtime selection -->
+
+      </div> <!-- end container for entire selections -->
+      <button id="mealSelectButton" onclick="displayMeal()">Submit</button>
     </section>
     <footer>
       footer
