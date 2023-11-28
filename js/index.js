@@ -1,3 +1,4 @@
+ 
 // selectors
 const burgermenu = document.querySelector('.burger');
 const navlinks = document.querySelector('.nav-links');
@@ -33,7 +34,7 @@ function selectedLocation() {
 }
 
 var result = selectedLocation();
-console.log(result); // You can now use the 'result' variable as needed.
+alert(result); // You can now use the 'result' variable as needed.
     
 
   function selectedCondition() {
@@ -46,7 +47,7 @@ console.log(result); // You can now use the 'result' variable as needed.
             console.log(selectedOption);
             imageElement.src = "images/cholesterol.png";       
             break;
-        case 'eczema':
+        case 'skin':
             console.log(selectedOption);
             imageElement.src = "images/skin.png";                
             break;        
@@ -80,28 +81,18 @@ console.log(result); // You can now use the 'result' variable as needed.
     }
         return selectedOption;    
   }
-
-  function displayMeal(){
-    var location=selectedLocation();
-    var condition=selectedCondition();
-    var mealtime=selectedMealtime();
-    switch (true) {
-
-        case (location === 'spain' && condition === 'cholesterol' && mealtime === 'breakfast') :
-            alert(`User selection ${location},${condition},${mealtime} : Pan Con Tomato`);
-          break;
-        case (location === 'germany' && condition === 'cholesterol' && mealtime === 'breakfast') :
-            alert(`User selection ${location},${condition},${mealtime} : Muesli Bavaria`);
-          break;
-          case (location === 'italy' && condition === 'cholesterol' && mealtime === 'breakfast') :
-            alert(`User selection ${location},${condition},${mealtime} : Fette Biscottate`);
-          break;  
-   
-         default:
-            alert(`Incorrect selection!`);
-       }
-    
+  
+  
+  function goToMealPage() {
+    // Get the selected values from the dropdowns
+    var selectedCountry = document.getElementById("country").value;
+    var selectedCondition = document.getElementById("condition").value;
+    var selectedMealtime = document.getElementById("mealtime").value;
+    // Redirect to nextpage.html with the selected country and location as query parameters
+    // URL of the current web page: const currentUrl = window.location.href
+    window.location.href = "mealpage.html?country=" + selectedCountry + "&condition=" + selectedCondition + "&mealtime=" + selectedMealtime;
   }
   
+   
   
   

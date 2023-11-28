@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    overflow: hidden; 
+}
+.main-container{
+    background-color: whitesmoke;
+    width: 75%;
+    max-width: 1120px;
+    margin: auto;
+}
+/* style navbar items */
+a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+/* remove style (bullet point) from nav list items */
+li{
+    list-style: none;
+}
+/* container located inside section */
+.container{
+    width: 75%;
+    max-width: 1120px;
+    margin: auto; 
+}
+
+header{
+    background-color: #39b846;
+    color: whitesmoke;
+    padding: 0.5rem,1rem;
+    width: 75%;
+    max-width: 1120px;
+    margin: auto;
+}
+
+.header{
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;  
+    box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.5);  
+}
+
+.nav-links{
+display: flex;
+align-items: center;
+/* centre nav links vertically on header */
+justify-content: center;
+}
+
+.nav-links li{
+    margin: 0 1rem;
+    font-size: 20px;
+}
+
+.nav-links li a:hover {
+    display: block; 
+    color: yellowgreen;
+    transition: all, 0.5s, ease;
+}
+/* must not display burger menu initially */
+.burger{
+    display: none;
+    margin-top: 60px;
+}
+/* style burger menu */
+.burger div{
+    background-color: whitesmoke;
+    width: 30px;
+    height: 3px;
+    margin: 0 0 8px 0;
+}
+
+.burger:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
