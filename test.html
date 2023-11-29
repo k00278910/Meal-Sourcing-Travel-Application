@@ -1,25 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dropdown Example</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 <body>
-  <label for="countries">Select a country:</label>
-  <select id="countries">
-    <option value="spain">Spain</option>
-    <option value="italy">Italy</option>
-  </select>
+  <!-- Create Carousel of Meal Display -->
+  
+    <div class="carousel">
 
-  <label for="locations">Select a location:</label>
-  <select id="locations">
-    <option value="town">Town</option>
-    <option value="city">City</option>
-  </select>
+      <div id="images" class="wrapper">
+        <img src="/images/01.jpg" alt="">
+        <img src="/images/02.jpg" alt="">
+        <img src="/images/03.jpg" alt="">
+        <img src="/images/04.jpg" alt="">
+        <img src="/images/05.jpg" alt="">
+        <img src="/images/06.jpg" alt="">
+      </div>
 
-  <button onclick="goToNextPage()">Go to Next Page</button>
+      <div class="buttons">
 
+        <button id="prev">
+          <i class="fa-solid fa-backward"></i>
+        </button>
+
+        <button id="next">
+          <i class="fa-solid fa-forward"></i>
+        </button>
+       
+      </div>
+    </div>
+  
+  
   <script src="js/test.js"></script>
+  
 </body>
 </html>

@@ -1,0 +1,59 @@
+/* Carousel Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgb(204, 204, 204);
+}
+.carousel{
+    position: relative;
+    height: 500px;
+    width: 800px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wrapper{
+    display: flex; 
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+.wrapper img{
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.buttons{
+    position: absolute;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+button{
+    background: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 60vh;
+    border-radius: 10px;
+    transition: all 0.5s ease-out;
+    background: rgba(0, 0, 0, 0.1);
+}
+button i{
+    font-size: 2rem;
+}
+button:hover{
+    background: rgba(0, 0, 0, 0.4);
+}

@@ -1,14 +1,14 @@
-var spain_meal = [{country:"spain",condition:"cholesterol",mealtime:"breakfast",meal:"Tostada-con-Tomate-y-Jamón"},
-                  {country:"spain",condition:"cholesterol",mealtime:"lunch",meal:"Gazpacho"},
-                  {country:"spain",condition:"cholesterol",mealtime:"dinner",meal:"Pisto"}];
+var spain_meal = [{country:"spain",condition:"cholesterol",mealtime:"breakfast",meal1:"tostada-con-tomate-y-jamon",meal2:"tostada-con-aguacate"},
+                  {country:"spain",condition:"cholesterol",mealtime:"lunch",meal1:"gazpacho",meal2:"lentejas-con-verduras"},
+                  {country:"spain",condition:"cholesterol",mealtime:"dinner",meal1:"pisto",meal2:"garbanzos-con-espinacas"}];
 
-var germany_meal = [{country:"germany",condition:"cholesterol",mealtime:"breakfast",meal:"Muesli-Bavaria"},
-                    {country:"germany",condition:"cholesterol",mealtime:"lunch",meal:"Linsensuppe"},
-                    {country:"germany",condition:"cholesterol",mealtime:"dinner",meal:"Gefüllte-Paprika"}];
+var germany_meal = [{country:"germany",condition:"cholesterol",mealtime:"breakfast",meal1:"muesli-bavaria"},
+                    {country:"germany",condition:"cholesterol",mealtime:"lunch",meal1:"linsensuppe"},
+                    {country:"germany",condition:"cholesterol",mealtime:"dinner",meal1:"gefullte-paprika"}];
 
-var italy_meal = [{country:"italy",condition:"cholesterol",mealtime:"breakfast",meal:"Fette-Biscottate"},
-                  {country:"italy",condition:"cholesterol",mealtime:"lunch",meal:"Insalata-Caprese"},
-                  {country:"italy",condition:"cholesterol",mealtime:"dinner",meal:"Melanzane-alla-Parmigiana"}];
+var italy_meal = [{country:"italy",condition:"cholesterol",mealtime:"breakfast",meal1:"fette-biscottate"},
+                  {country:"italy",condition:"cholesterol",mealtime:"lunch",meal1:"insalata-caprese"},
+                  {country:"italy",condition:"cholesterol",mealtime:"dinner",meal1:"melanzane-alla-parmigiana"}];
  
  
  // Function to extract the country and location from the URL query parameters
@@ -38,7 +38,7 @@ var selectedCountryArray = window[country + "_meal"];
 if (selectedCountryArray) {
   for (var index in selectedCountryArray) {
     if (selectedCountryArray[index]["mealtime"] === mealtime) {
-      mealdisplay = selectedCountryArray[index]["meal"];
+      mealdisplay = selectedCountryArray[index]["meal1"];
       document.getElementById("meal-display").innerText = mealdisplay || 'Meal Display';
     }
   }
@@ -48,6 +48,35 @@ if (selectedCountryArray) {
 
 }  
 
+
+  var images= document.getElementById("images");
+  var prevBtn= document.getElementById("prev");
+  var forwardBtn= document.getElementById("next");
+  var img= document.getElementsByTagName("img");
+  var position=0;
+
+  function start(){
+    position++;
+    changeImage();
+  }
+  function changeImage(){
+    if (position > img.length -2){
+      position=0;
+    }else if (position<0){
+      position=img.length-2;
+    }
+    images.style.transform=`translateX(${-position*800}px)`;
+  }
+
+  forwardBtn.addEventListener("click",()=>{
+    position ++;
+    changeImage();
+  });
+
+  prevBtn.addEventListener("click",()=>{
+    position --;
+    changeImage();
+  });
 
 
      
