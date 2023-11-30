@@ -82,14 +82,47 @@ justify-content: center;
     opacity: 0.8;
     cursor: pointer;
 }
+/* Display Headers on Main Content */
+
+
+.selections {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
+  .selections h3 {
+    margin-right: 10px; /* spacing */
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
+  .controls button,
+  .controls h1 {
+    margin-right: 10px; 
+  }
+
+  .container-select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 
 /* Carousel Styling */
 .carousel-body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background: rgb(204, 204, 204);
+    height: 50vh;
+    /* background: rgb(204, 204, 204); */
+    background-color: #39b846;
+    width: 75%;
+    max-width: 1120px;
+    margin: auto;
 }
 .carousel{
     position: relative;
@@ -121,19 +154,10 @@ justify-content: center;
 }
 button{
     background: transparent;
-    color: #fff;
+    color: black;
     border: none;
     cursor: pointer;
-    width: 100px;
-    height: 60vh;
     border-radius: 10px;
     transition: all 0.5s ease-out;
     background: rgba(0, 0, 0, 0.1);
-}
-button i{
-    font-size: 2rem;
-
-}
-button:hover{
-    background: rgba(0, 0, 0, 0.4);
 }
