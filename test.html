@@ -2,39 +2,61 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <title>Hungry Hoot Mealpage</title>
     <link rel="stylesheet" href="/css/test.css">
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
 <body>
-  <!-- Create Carousel of Meal Display -->
-  
-    <div class="carousel">
+  <div id="content-test">
 
-      <div id="images" class="wrapper">
-        <img src="/images/01.jpg" alt="">
-        <img src="/images/02.jpg" alt="">
-        <img src="/images/03.jpg" alt="">
-        <img src="/images/04.jpg" alt="">
-        <img src="/images/05.jpg" alt="">
-        <img src="/images/06.jpg" alt="">
+    <header id="main-header">
+      <div class="head-container">
+        <div class="header">
+          <!-- <h1>Hungry-Hoot</h1> -->
+          <img src="images/hungryhoot-logo.png" alt="hungryhoot logo">
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <!-- <li><a href="#">Select Meal</a></li> -->
+          </ul>
+          <div class="burger">
+              <div class="burger-line-1"></div>
+              <div class="burger-line-2"></div>
+              <div class="burger-line-3"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section> <!-- section for page content -->
+      
+      <div class="container-select">
+        <div class="selections">
+          <h3 id="country-heading">Country</h3>
+          <h3 id="condition-heading">Condition</h3>
+          <h3 id="mealtime-heading">Mealtime</h3>
+        </div>
+      
+        <div class="controls">
+          <button id="previous-meal">Previous Option</button>
+          <h1 id="meal-display">Meal Display</h1>
+          <button id="next-meal">Next Option</button>
+        </div>
+      </div>
+      <!-- Create Carousel of Meal Display -->
+      <div class="carousel-body">
+        <div class="carousel">
+          <div id="images" class="wrapper">
+            <img src="/images/0.jpg" id="meal-image" alt="">
+          </div> 
+        </div>
       </div>
 
-      <div class="buttons">
 
-        <button id="prev">
-          <i class="fa-solid fa-backward"></i>
-        </button>
-
-        <button id="next">
-          <i class="fa-solid fa-forward"></i>
-        </button>
-       
-      </div>
-    </div>
-  
+      
+    </section>
+    
+  </div><!-- end main container -->
   
   <script src="js/test.js"></script>
   

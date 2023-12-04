@@ -1,7 +1,7 @@
-var spain_meal = [{country:"spain",condition:"cholesterol",mealtime:"breakfast",meal0:"tostada-con-tomate-y-jamon",meal1:"tostada-con-aguacate",meal2:"meal-3-option"},
-  {country:"spain",condition:"cholesterol",mealtime:"lunch",meal0:"gazpacho",meal1:"lentejas-con-verduras",meal2:"meal-3-option"},
-  {country:"spain",condition:"cholesterol",mealtime:"dinner",meal0:"pisto",meal1:"garbanzos-con-espinacas",meal2:"meal-3-option"},
-  {country:"spain",condition:"hair",mealtime:"breakfast",meal0:"tostada-con-tomate-y-jamon",meal1:"tostada-con-aguacate",meal2:"meal-3-option"}];
+var spain_meal = [{country:"spain",condition:"cholesterol",mealtime:"breakfast",meal0:"tostada-con-tomate y jamon",meal1:"tostada con aguacate",meal2:"tortilla española"},
+  {country:"spain",condition:"cholesterol",mealtime:"lunch",meal0:"gazpacho",meal1:"lentejas con verduras",meal2:"Paella de Mariscos"},
+  {country:"spain",condition:"cholesterol",mealtime:"dinner",meal0:"pisto",meal1:"garbanzos con espinacas",meal2:"Bacalao a la Vizcaína"},
+  {country:"spain",condition:"hair",mealtime:"breakfast",meal0:"tostada-con-tomate-y-jamon",meal1:"tostada-con-aguacate",meal2:"Bacalao a la Vizcaína"}];
 
 var germany_meal = [{country:"germany",condition:"cholesterol",mealtime:"breakfast",meal1:"muesli-bavaria"},
                     {country:"germany",condition:"cholesterol",mealtime:"lunch",meal1:"linsensuppe"},
@@ -29,80 +29,109 @@ var condition = params.condition;
 var mealtime = params.mealtime;
 var mealdisplay = ""; 
 var mealNum=0; // find meal position in object
-var propertyCount=0; // length of each meal object
 
+var stringSelectedCountryArray; // name of object array
+var selectedCountryArray;// array of objects
+var index=0; //meal object
+var mealnameObject; // object stores mealname 
+var objectLength=0;// entire amount of properties in meal object
+var objectMealQty=0;// amount of meals in meal object
+
+
+// set heading as selected options
 document.getElementById("country-heading").innerText = params.country || 'Country';
 document.getElementById("condition-heading").innerText = params.condition || 'Condition';
 document.getElementById("mealtime-heading").innerText = params.mealtime || 'Mealtime'; 
-
+// ** 
 if(country&&condition&&mealtime){
+stringSelectedCountryArray=country + "_meal";
+selectedCountryArray = window[country + "_meal"]; 
 
-var selectedCountryArray = window[country + "_meal"]; 
-
-if (selectedCountryArray) {
-  for (var index in selectedCountryArray) {
-    if (selectedCountryArray[index]["mealtime"] === mealtime) {
-      mealdisplay = selectedCountryArray[index]["meal0"];
-      document.getElementById("meal-display").innerText = mealdisplay || 'Meal Display';
+// ** find qty of meals in selected meal array **
+if (selectedCountryArray) { //selectedCountryArray is the array of objects
+  selectedCountryArray.forEach(function(obj, index) {
+    if (obj.mealtime === mealtime && obj.condition === condition){
+      mealnameObject=Object.keys(obj);
+      objectLength = Object.keys(obj).length;
+      objectMealQty = objectLength-3;
+     console.log(`Length of object at index ${index}: ${objectLength} qty of meals in object ${objectMealQty}`);
+     console.log(`Mealname Object ${mealnameObject}`);
     }
-  }
-} else {
-  alert('Incorrect User Input');
+  });
+} 
+else {
+  alert('Country array of objects not located!');
+}
 }
 
-}  
+// ** Create an image array for each country - condition - mealtime combo
+var spain_image = [
+  { mealtime: 'breakfast',condition: 'cholesterol', images: ['/images/spain-breakfast-cholesterol-0.jpg', '/images/spain-breakfast-cholesterol-1.jpg', '/images/spain-breakfast-cholesterol-2.jpg'] },
+  { mealtime: 'lunch',condition: 'cholesterol', images: ['/images/spain-lunch-cholesterol-0.jpg', '/images/spain-lunch-cholesterol-1.jpg', '/images/spain-lunch-cholesterol-2.jpg'] },
+  { mealtime: 'dinner',condition: 'cholesterol', images: ['/images/spain-dinner-cholesterol-0.jpg', '/images/spain-dinner-cholesterol-1.jpg', '/images/spain-dinner-cholesterol-2.jpg'] }
+];
 
-  var images= document.getElementById("images");
-  var prevBtn= document.getElementById("previous-meal");
-  var nextBtn= document.getElementById("next-meal");
-  var img= document.getElementsByTagName("img");
-  var position=0;
 
-  function start(){
-    position++;
-    changeImage();
+var stringSelectedImageArray; // name of image object array
+var selectedImageArray;// image 0bject array (this is what we iterate)
+var index=0; //image object
+
+var imageObject; // array of images 
+var imageObjectLength=0;// entire amount of properties in Image array
+var objectImageQty=0;// amount of images in object
+
+stringSelectedImageArray=country + "_image";
+selectedImageArray = window[country + "_image"]; 
+
+// ** find qty of images in selected array **
+selectedImageArray.forEach(function(obj, index) {
+  // if object property mealtime=var mealtime && property condition= var condition
+  if (obj.mealtime === mealtime && obj.condition === condition){
+    imageObject=obj.images; // creates a seperate array of images only
+    imageObjectLength = imageObject.length;
+    console.log(`Length of Image object at index ${index}: ${imageObjectLength}`);
+  } 
+});
+
+// ensure qty images equals qty meal options 
+if (!(imageObjectLength === objectMealQty)) {
+  alert('number of images do not match number of meal options!');
+ // return; // This will exit the function
+}else{
+  //alert('images equal meal options!');
+}
+
+// two arrays
+//imageObject , this is the array of images
+// mealnameObject . this is array of meals
+let currentIndex = 0;
+
+// function to display a single pair
+function displayPair() {
+  const mealImage = imageObject[currentIndex];
+  var meal;
+  selectedCountryArray.forEach((currentMeal) => {
+  if (currentMeal.mealtime === mealtime && currentMeal.condition === condition){   
+    meal=currentMeal["meal" + currentIndex];
+    document.getElementById("meal-display").innerText = meal;
+    document.getElementById("meal-image").src = mealImage;
   }
-  
-  function changeMealHeading(){
-    // find object length
-    selectedCountryArray.forEach(function (mealObject) {
-      if (mealObject.mealtime === mealtime && mealObject.condition === condition){
-      propertyCount = Object.keys(mealObject).length;
-      propertyCount = propertyCount-3;
-      
-      if (position >= propertyCount){
-        position=0; 
-      }
-       else if (position<0){
-         position=propertyCount-1;
-       }
-      mealNum = mealObject["meal" + position];
-      // All meal numbers are between MealNum and propertyCount
-      document.getElementById("meal-display").innerText = mealNum;
-    }
   });
-  }
+}
 
-  function changeImage(){
-    if (position > img.length -2){
-      position=0;
-    }else if (position<0){
-      position=img.length-2;
-    }
-    images.style.transform=`translateX(${-position*800}px)`;
-  }
+// initial display
+displayPair();
 
-  nextBtn.addEventListener("click",()=>{
-    position ++;
-    changeMealHeading();
-    changeImage();
-  });
+// event listener for next button
+document.getElementById('next-meal').addEventListener('click', () => {
+  // increment index and display the next pair
+  currentIndex = (currentIndex + 1) % imageObject.length;
+  displayPair();
+});
 
-  prevBtn.addEventListener("click",()=>{
-    position --;
-    changeMealHeading();
-    changeImage();
-  });
-
-
-     
+// event listener for previous button
+document.getElementById('previous-meal').addEventListener('click', () => {
+  // decrement index and display the previous pair
+  currentIndex = (currentIndex - 1 + imageObject.length) % imageObject.length;
+  displayPair();
+});
