@@ -1,107 +1,438 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hungry Hoot Homepage</title>
-    <link rel="stylesheet" href="/css/index.css">
+    <title>Your Webpage Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 5px;
+            box-sizing: border-box;
+            max-width: 1120px;
+            margin: 0 auto;
+            border: 2px solid black;
+            font-size: 16px;
+            background-color:#e0fbfc;
+        }
+
+        header {
+            background-color: #3d5a80;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #293241;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            order: 2;
+            
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+      
+        .content-location, .content-mealtime, .content-condition {
+            display: flex;
+            margin: 1rem 0;
+            flex-flow: row wrap;
+            background-color: #98c1d9;
+            box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .location-image, .mealtime-image ,.condition-image {
+            /* border: 2px solid #3ACBE8; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        #flagImage, #mealtimeImage, #conditionImage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .parent-location, .parent-mealtime, .parent-condition {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            flex: 1;
+            /* border: 2px solid #3ACBE8; */
+        }
+
+        .location-text, .mealtime-text, .condition-text {
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            /* border: 2px solid #3ACBE8; */
+            flex: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 25px;
+        }
+        
+       
+        .location-menu, .mealtime-menu, .condition-menu {
+            font-size: 25px;
+            text-align: center;
+            /* border: 2px solid #3ACBE8; */
+            padding-right: 5px;
+            padding-bottom: 30px;
+            flex: auto;
+            height: 130px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .location-menu label, .mealtime-menu label, .condition-menu label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 22px;
+            color: whitesmoke;
+        }
+
+        .location-menu input, .mealtime-menu input, .condition-menu input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 22px;
+            padding: 0 5px 0 5px;
+        }
+
+        .location-menu select, .mealtime-menu select, .condition-menu select {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 20px;
+            width: 90%;
+        }
+
+         .dropdown{
+            display: inline-block;
+            width: 90%;
+        } 
+
+        .dropdown button{
+            background-color: hsl(0, 0%, 80%);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            
+        }
+
+        .dropdown option{
+            display: block;
+            color: black;
+            text-decoration: none;
+            /* padding: 10px 10px; */
+        }
+
+        .dropdown .content{
+            display: none;
+            position: absolute;
+            background-color: hsl(0, 0%, 95%);
+            /* min-width: 100px; */
+            box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+        }
+
+        .dropdown:hover button{
+            background-color: hsl(0, 0%, 70%);
+        }
+
+        .dropdown option:hover{
+            background-color: hsl(0, 0%, 90%);
+        }
+   
+        footer {
+            background-color: #3d5a80;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            /* width: 100%; */
+            position: relative;
+            bottom: 0;
+            margin: 1rem 0 0 0;
+            font-size: 15px;
+        }
+        .location-image, .mealtime-image, .condition-image {
+            flex: 1;
+        }
+        #mealSelectButton{
+            font-size: 20px;
+            color: white;
+            background-color: red;
+            padding: 10px;
+            margin-top: 1rem;
+            box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        #mealSelectButton:hover{
+            transition: all, 0.5s, ease;
+            cursor: pointer;
+            opacity: 0.7;
+            border:2px solid #fff;
+        }
+
+        /* Styles for laptops */
+        @media only screen and (max-width: 1366px) {
+        body {
+            font-size: 14px;
+           
+        }
+        .location-image, .mealtime-image, .condition-image {
+            flex: 1;
+        }
+        }
+
+        /* Styles for tablets */
+        @media only screen and (max-width: 1024px) {
+        body {
+            font-size: 12px;
+           
+        }
+        .location-image, .mealtime-image, .condition-image {
+            flex: 1;
+        }
+        }
+
+        /* Styles for mobile devices */
+        @media only screen and (max-width: 768px) {
+        body {
+            font-size: 10px;          
+        }
+
+        nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                order: 1;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+        .location-image, .mealtime-image, .condition-image {
+            flex: 1;
+        }
+            
+        }
+
+        @media only screen and (min-width: 280px) and (max-width: 590px) 
+        {
+        .content-location, .content-mealtime, .content-condition {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .location-image, .mealtime-image, .condition-image {
+            flex: 1; 
+            margin-top: 30px;
+        }
+
+        .parent-location, .parent-mealtime, .parent-condition {
+            flex: 1; 
+            width: 100%; /* Make .location-menu span the entire width */
+            box-sizing: border-box; 
+        }      
+
+        }
+
+
+        /* Galaxy Fold styles */
+        @media only screen and (max-width: 280px) {
+        body {
+            font-size: 8px;
+        }
+
+            
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                order: 1;
+            }
+       
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            .content-location, .content-mealtime, .content-condition {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+            }
+            .location-image, .mealtime-image, .condition-image {
+                flex: 1; 
+                margin-top: 30px;
+            }
+
+            .parent-location, .parent-mealtime, .parent-condition {
+                flex: 1; /* Change the order to 2 to move it below .location-image */
+                width: 100%; /* Make .location-menu span the entire width */
+                box-sizing: border-box;
+           
+            }
+            
+        }
+        
+        
+
+    </style>
 </head>
 <body>
-  <div class="main-container">
-  <!-- page header -->
-    <header id="main-header">
-      <div class="head-container">
-        <div class="header">
-          <!-- <h1>Hungry-Hoot</h1> -->
-          <img src="images/hungryhoot-logo.png" alt="hungryhoot logo">
-          <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <!-- <li><a href="#">Select Meal</a></li> -->
-          </ul>
-          <div class="burger">
-              <div class="burger-line-1"></div>
-              <div class="burger-line-2"></div>
-              <div class="burger-line-3"></div>
-          </div>
+
+    <header>
+        <img src="images/hungryhoot-logo.png" alt="Your Logo" style="height: 8rem; width: 8rem;">
+        <h1></h1>
+        <div class="hamburger" onclick="toggleNav()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-      </div>
     </header>
-  
-    <section> <!-- section for page content -->
-      
-      <div class="container"> <!-- container for entire selections -->
-        
-        <div class="content-location">  <!-- container for location selection -->
-          <div class="location-image">
-            <img id="flagImage" src="images/travel.png" alt="Flag Image">
-          </div>
-          <div class="parent-location">
-            <div class="location-text">
-              <h3>My Location:</h3>
-            </div> 
-            <div class="location-menu">
-              <div class="dropdown">
-                <select id="country" size=3 onchange="selectedLocation()">
-                  <option value="spain">Spain</option>
-                  <option value="germany">Germany</option>
-                  <option value="italy">Italy</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>  <!-- end container for location selection -->
 
-        <div class="content-mealtime"> <!-- container for mealtime selection -->
-          <div class="mealtime-image">
-            <img id="mealtimeImage" src="images/mealtime.png" alt="Mealtime Image">
-          </div>
-          <div class="parent-mealtime">
-            <div class="mealtime-text">
-              <h3>My meal time:</h3>
-            </div> 
-            <div class="mealtime-menu">
-              <div class="dropdown">
-                <select id="mealtime" size=3 onchange="selectedMealtime()">
-                  <option value="breakfast">Breakfast</option>
-                  <option value="lunch">Lunch</option>
-                  <option value="dinner">Dinner</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>  <!-- end container for mealtime selection -->
-        
-        <div class="content-condition"> <!-- container for condition selection -->
-          <div class="condition-image">
-            <img id="conditionImage" src="images/pulse-green.png" alt="Condition Image">
-          </div>
-          <div class="parent-condition">
-            <div class="condition-text">
-              <h3>Be kind to:</h3>
-            </div> 
-            <div class="condition-menu">
-              <div class="dropdown">
-                <select id="condition" size=3 onchange="selectedCondition()">
-                  <option value="cholesterol">Cholesterol</option>
-                  <option value="skin">Skin</option>
-                  <option value="alopecia">Hair</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>  <!-- end container for condition selection -->
+    <nav id="navbar">
+        <!-- <a href="#home">Home</a> -->
+        <a href="#about">About</a>
+    </nav>
 
-      </div> <!-- end container for entire selections -->
-      
-      <button id="mealSelectButton" onclick=goToMealPage()>VIEW MEALPAGE</button>
-    </section>
-    <footer>
-      footer
-    </footer>
+    <main>
+        <div class="content-location">
+            <div class="location-image">
+                <img id="flagImage" src="images/travel.png" alt="Flag Image">
+            </div>
+            <div class="parent-location">
+                <div class="location-text">
+                    <h3>Location:</h3>
+                </div>
+                <div class="location-menu">
+                    <div class="dropdown">
+                        <select id="country" size=3 onchange="selectedLocation()">
+                            <option value="spain">Spain</option>
+                            <option value="germany">Germany</option>
+                            <option value="italy">Italy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="/js/index.js"></script>
-    <script src="/js/mealpage.js"></script>
+        <div class="content-mealtime">
+            <div class="mealtime-image">
+                <img id="mealtimeImage" src="images/mealtime.png" alt="Mealtime Image">
+            </div>
+            <div class="parent-mealtime">
+                <div class="mealtime-text">
+                    <h3>Mealtime:</h3>
+                </div>
+                <div class="mealtime-menu">
+                    <div class="dropdown">
+                        <select id="mealtime" size=3 onchange="selectedMealtime()">
+                          <option value="breakfast">Breakfast</option>
+                          <option value="lunch">Lunch</option>
+                          <option value="dinner">Dinner</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-condition">
+            <div class="condition-image">
+                <img id="conditionImage" src="images/pulse-blue.png" alt="Condition Image">
+            </div>
+            <div class="parent-condition">
+                <div class="condition-text">
+                    <h3>Beneficial to:</h3>
+                </div>
+                <div class="condition-menu">
+                    <div class="dropdown">
+                        <select id="condition" size=3 onchange="selectedCondition()">
+                            <option value="cholesterol">Cholesterol</option>
+                            <option value="skin">Skin</option>
+                            <option value="hair">Hair</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="mealSelectButton" onclick=goToMealPage()>VIEW MEALPAGE</button>     
+
     
-  </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 hungryhoot.com. All rights reserved.</p>
+    </footer>
+    <script src="/js/index.js"></script>
+   
 </body>
 </html>
+

@@ -12,6 +12,11 @@ console.log(navlinks);
 // class nav-links to show-nav-links 
 navlinks.classList.toggle('show-nav-links');
 }
+
+function toggleNav() {
+    var nav = document.getElementById("navbar");
+    nav.classList.toggle("show");
+}
 function selectedLocation() {
     var selectElement = document.getElementById("country");
     var selectedOption = selectElement.options[selectElement.selectedIndex].value; 
@@ -51,7 +56,7 @@ alert(result); // You can now use the 'result' variable as needed.
             console.log(selectedOption);
             imageElement.src = "images/skin.png";                
             break;        
-        case 'alopecia':
+        case 'hair':
             console.log(selectedOption);
             imageElement.src = "images/hair.png";     
             break;

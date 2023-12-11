@@ -1,7 +1,22 @@
-var spain_meal = [{country:"spain",condition:"cholesterol",mealtime:"breakfast",meal0:"tostada-con-tomate y jamon",meal1:"tostada con aguacate",meal2:"tortilla española"},
+function toggleNav() {
+  var nav = document.getElementById("navbar");
+  nav.classList.toggle("show");
+}
+
+
+var spain_meal = [
+  {country:"spain",condition:"cholesterol",mealtime:"breakfast",meal0:"tostada con tomate",meal1:"tostada con aguacate",meal2:"tortilla española"},
   {country:"spain",condition:"cholesterol",mealtime:"lunch",meal0:"gazpacho",meal1:"lentejas con verduras",meal2:"Paella de Mariscos"},
   {country:"spain",condition:"cholesterol",mealtime:"dinner",meal0:"pisto",meal1:"garbanzos con espinacas",meal2:"Bacalao a la Vizcaína"},
-  {country:"spain",condition:"hair",mealtime:"breakfast",meal0:"tostada-con-tomate-y-jamon",meal1:"tostada-con-aguacate",meal2:"Bacalao a la Vizcaína"}];
+
+  {country:"spain",condition:"skin",mealtime:"breakfast",meal0:"Batido de Maracuyá",meal1:"Avena con Frutas",meal2:"Pan Integral con Aguacate y Salmón"},
+  {country:"spain",condition:"skin",mealtime:"lunch",meal0:"tostada-con-tomate y jamon",meal1:"tostada con aguacate",meal2:"tortilla española"},
+  {country:"spain",condition:"skin",mealtime:"dinner",meal0:"tostada-con-tomate y jamon",meal1:"tostada con aguacate",meal2:"tortilla española"},
+
+  {country:"spain",condition:"hair",mealtime:"breakfast",meal0:"Tortilla de Espinacas y Champiñones",meal1:"Yogur con Frutas y Frutos Secos",meal2:"Ensalada de Frutas con Kiwi y Semillas de Chía"},
+  {country:"spain",condition:"hair",mealtime:"lunch",meal0:"tostada-con-tomate y jamon",meal1:"tostada con aguacate",meal2:"tortilla española"},
+  {country:"spain",condition:"hair",mealtime:"dinner",meal0:"tostada-con-tomate y jamon",meal1:"tostada con aguacate",meal2:"tortilla española"}
+];
 
 var germany_meal = [{country:"germany",condition:"cholesterol",mealtime:"breakfast",meal1:"muesli-bavaria"},
                     {country:"germany",condition:"cholesterol",mealtime:"lunch",meal1:"linsensuppe"},
@@ -67,8 +82,19 @@ else {
 // ** Create an image array for each country - condition - mealtime combo
 var spain_image = [
   { mealtime: 'breakfast',condition: 'cholesterol', images: ['/images/spain-breakfast-cholesterol-0.jpg', '/images/spain-breakfast-cholesterol-1.jpg', '/images/spain-breakfast-cholesterol-2.jpg'] },
+  
   { mealtime: 'lunch',condition: 'cholesterol', images: ['/images/spain-lunch-cholesterol-0.jpg', '/images/spain-lunch-cholesterol-1.jpg', '/images/spain-lunch-cholesterol-2.jpg'] },
-  { mealtime: 'dinner',condition: 'cholesterol', images: ['/images/spain-dinner-cholesterol-0.jpg', '/images/spain-dinner-cholesterol-1.jpg', '/images/spain-dinner-cholesterol-2.jpg'] }
+  
+  { mealtime: 'dinner',condition: 'cholesterol', images: ['/images/spain-dinner-cholesterol-0.jpg', '/images/spain-dinner-cholesterol-1.jpg', '/images/spain-dinner-cholesterol-2.jpg'] },
+
+  { mealtime: 'breakfast',condition: 'skin', images: ['/images/spain-breakfast-skin-0.jpg', '/images/spain-breakfast-skin-1.jpg', '/images/spain-breakfast-skin-2.jpg'] },
+  { mealtime: 'lunch',condition: 'skin', images: ['/images/spain-lunch-skin-0.jpg', '/images/spain-lunch-skin-1.jpg', '/images/spain-lunch-skin-2.jpg'] },
+  { mealtime: 'dinner',condition: 'skin', images: ['/images/spain-dinner-skin-0.jpg', '/images/spain-dinner-skin-1.jpg', '/images/spain-dinner-skin-2.jpg'] },
+
+  { mealtime: 'breakfast',condition: 'hair', images: ['/images/spain-breakfast-hair-0.jpg', '/images/spain-breakfast-hair-1.jpg', '/images/spain-breakfast-hair-2.jpg'] },
+  { mealtime: 'lunch',condition: 'hair', images: ['/images/spain-lunch-hair-0.jpg', '/images/spain-lunch-hair-1.jpg', '/images/spain-lunch-hair-2.jpg'] },
+  { mealtime: 'dinner',condition: 'hair', images: ['/images/spain-dinner-hair-0.jpg', '/images/spain-dinner-hair-1.jpg', '/images/spain-dinner-hair-2.jpg'] }
+
 ];
 
 
@@ -100,6 +126,8 @@ if (!(imageObjectLength === objectMealQty)) {
 }else{
   //alert('images equal meal options!');
 }
+// *** now 3 arrays, one must have a nutritional object ***
+
 
 // two arrays
 //imageObject , this is the array of images
