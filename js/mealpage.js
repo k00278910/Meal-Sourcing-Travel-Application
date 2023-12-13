@@ -97,17 +97,26 @@ var spain_image = [
 
 ];
 
+var spain_nutrition = [
+  //                                       meal nutrition =     serving,     carbs,  total fat, saturated fat,protein,cholesterol, total sugar
+  { mealtime: 'breakfast',condition: 'cholesterol', nutrition: [["100","N/A","21","8","6.40","8","1","5","4.40","6","0","0","2.9","4"],
+  ["150","N/A","20","8","11","12","1.60","6","3.80","5","0","0","1.8","3"] ,["275","N/A","40","15","23","29","3.60","18","13","18","208","69","4.0","6"]]},
 
-var stringSelectedImageArray; // name of image object array
-var selectedImageArray;// image 0bject array (this is what we iterate)
-var index=0; //image object
+  { mealtime: 'lunch',condition: 'cholesterol', nutrition: [["244","N/A","10","4","8.70","11","1.20","6","2.10","4","0","0","6.3","8"],
+  ["248","N/A","20","8","2.80","4","1","5","9.30","11","7.40","3","0","0"] ,["100","N/A","37","15","13","16","2","10","19.40","23","1.10","0.50","1.30","2"]]},
 
+  { mealtime: 'dinner',condition: 'cholesterol', nutrition: [["220","N/A","7.20","3","78.00","84","22","5","23.00","36","1","0.5","3.5","4"],
+  ["350","N/A","7.80","3","9.00","10","1","5","5.00","6","0","0","0","0"] ,["175","N/A","19","7","20.80","27","2.90","15","16.00","18","0","0","2.0","3"]]}
+
+];
+// ******* Ensure that qty of images equals qty of meals
 var imageObject; // array of images 
 var imageObjectLength=0;// entire amount of properties in Image array
 var objectImageQty=0;// amount of images in object
 
-stringSelectedImageArray=country + "_image";
-selectedImageArray = window[country + "_image"]; 
+var stringSelectedImageArray=country + "_image"; // name of image object array
+var selectedImageArray = window[country + "_image"];  // image 0bject array (this is what we iterate)
+var index=0; // actual image object
 
 // ** find qty of images in selected array **
 selectedImageArray.forEach(function(obj, index) {
@@ -126,29 +135,102 @@ if (!(imageObjectLength === objectMealQty)) {
 }else{
   //alert('images equal meal options!');
 }
-// *** now 3 arrays, one must have a nutritional object ***
+// ******* Ensure that qty of Nutrition arrays equals qty of meals
+var nutritionObject; // array of nutrition objects 
+var nutritionObjectLength=0;// entire amount of properties(1d-arrays+strings) in nutrition array
+var objectNutritionQty=0;// amount of nutrition arrays in object, strings removed
 
+var stringSelectedNutritionArray=country + "_nutrition"; // name of nutrition object array
+var selectedNutritionArray = window[country + "_nutrition"];  // nutrition 0bject array (this is what we iterate)
+var nutritionIndex=0; // actual nutrition object
+
+// ** find qty of nutrition arrays in selected array **
+selectedNutritionArray.forEach(function(obj, nutritionIndex) {
+  // if object property mealtime=var mealtime && property condition= var condition
+  if (obj.mealtime === mealtime && obj.condition === condition){
+    nutritionObject=obj.nutrition; // creates a seperate array of nutrition 1d-arrays
+    nutritionObjectLength = nutritionObject.length;
+    console.log(`Length of Nutrition object at index ${nutritionIndex}: ${nutritionObjectLength}`);
+  } 
+});
+
+// ensure qty nutrition equals qty meal options 
+if (!(nutritionObjectLength === objectMealQty)) {
+  alert('number of nutrition objects do not match number of meal options!');
+ // return; // This will exit the function
+}else{
+  //alert('nutrition info qty equal meal options!');
+}
+// *******************
 
 // two arrays
-//imageObject , this is the array of images
 // mealnameObject . this is array of meals
+//imageObject , this is the array of images
+//nutritionObject , this is the array of nutrition objects
+// *** pending: source object ***
 let currentIndex = 0;
 
 // function to display a single pair
 function displayPair() {
   const mealImage = imageObject[currentIndex];
+  const mealNutrition = nutritionObject[currentIndex];
   var meal;
+  let dataArray = [];
+
   selectedCountryArray.forEach((currentMeal) => {
   if (currentMeal.mealtime === mealtime && currentMeal.condition === condition){   
     meal=currentMeal["meal" + currentIndex];
     document.getElementById("meal-display").innerText = meal;
     document.getElementById("meal-image").src = mealImage;
+    // document.getElementById("meal-nutrition").innerText = mealNutrition; 
+      dataArray = [
+      { id: 'Serving', Amount: mealNutrition[0] + 'g', 'Daily Recommendation': mealNutrition[1] },
+      { id: 'Carbs', Amount: mealNutrition[2] + 'g', 'Daily Recommendation': mealNutrition[3]+ '%' },
+      { id: 'Total Fat', Amount: mealNutrition[4] + 'g', 'Daily Recommendation': mealNutrition[5]+ '%' },
+      { id: 'Saturated Fat', Amount: mealNutrition[6] + 'g', 'Daily Recommendation': mealNutrition[7]+ '%' },
+      { id: 'Protein', Amount: mealNutrition[8] + 'g', 'Daily Recommendation': mealNutrition[9]+ '%' },
+      { id: 'Cholesterol', Amount: mealNutrition[10] + 'g', 'Daily Recommendation': mealNutrition[11]+ '%' },
+      { id: 'Sugar', Amount: mealNutrition[12] + 'g', 'Daily Recommendation': mealNutrition[13]+ '%' },
+    ];
+   
+    const tableContainer = document.getElementById('table-container');
+    // clear table
+    tableContainer.innerHTML = '';
+    // append new table
+    const table = createTableFromObjects(dataArray);
+    tableContainer.appendChild(table); 
   }
+  
   });
 }
+ displayPair();
+ // Create table for Nutritional Display
+function createTableFromObjects(data) {
+  const table = document.createElement('table');
+  const headerRow = document.createElement('tr');
+  
+  // Create table header row
+  const keys = Object.keys(data[0]);
+  for (const key of keys) {
+    const headerCell = document.createElement('th');
+    headerCell.textContent = key;
+    headerRow.appendChild(headerCell);
+  }
+  table.appendChild(headerRow);
 
-// initial display
-displayPair();
+  // Create table data rows
+  for (const obj of data) {
+    const dataRow = document.createElement('tr');
+    for (const key of keys) {
+      const dataCell = document.createElement('td');
+      dataCell.textContent = obj[key];
+      dataRow.appendChild(dataCell);
+    }
+    table.appendChild(dataRow);
+  }
+
+  return table;
+}
 
 // event listener for next button
 document.getElementById('next-meal').addEventListener('click', () => {
@@ -163,3 +245,5 @@ document.getElementById('previous-meal').addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + imageObject.length) % imageObject.length;
   displayPair();
 });
+
+

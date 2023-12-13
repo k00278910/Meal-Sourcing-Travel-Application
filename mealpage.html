@@ -175,6 +175,14 @@
             text-align: center;
             text-transform: capitalize;
         }
+         /* ******** TEMP *********** */
+         #meal-nutrition{
+            font-size: 30px;
+            color: blue;
+            /* border: 3px solid blue; */
+            text-align: center;
+            text-transform: capitalize;
+        }
 
 
         .information{
@@ -443,50 +451,9 @@
             <div class="nutrition">
               <!-- From myFitnessPal (use restful API connection later) -->
               <h1>Nutritional Content</h1>
-              <table>
-                <tr>
-                    <th></th>
-                    <th>Amount (g)</th>
-                    <th>Percentage (%)</th>
-                </tr>
-                <tr>
-                    <th>Serving</th>
-                    <td><!-- Serving content --></td>
-                    <td><!-- Serving percentage content --></td>
-                </tr>
-                <tr>
-                    <th>Carbs</th>
-                    <td><!-- Carbs content --></td>
-                    <td><!-- Carbs percentage content --></td>
-                </tr>
-                <tr>
-                  <th>Total Fat</th>
-                  <td><!-- Carbs content --></td>
-                  <td><!-- Carbs percentage content --></td>
-              </tr>
-              <tr>
-                <th>Saturated Fat</th>
-                <td><!-- Carbs content --></td>
-                <td><!-- Carbs percentage content --></td>
-            </tr>
-            <tr>
-              <th>Protein</th>
-              <td><!-- Carbs content --></td>
-              <td><!-- Carbs percentage content --></td>
-          </tr>
-            <tr>
-              <th>Cholesterol</th>
-              <td><!-- Carbs content --></td>
-              <td><!-- Carbs percentage content --></td>
-          </tr>
-          <tr>
-            <th>Total Sugar</th>
-            <td><!-- Carbs content --></td>
-            <td><!-- Carbs percentage content --></td>
-        </tr>
-          
-                
-            </table>
+              <h1 id="meal-nutrition">Meal Nutrition</h1>
+              <div id="table-container"></div>  
+              <!-- table containing nutritional content is created in mealpage.js -->
             </div>
             <!-- Display Meal Sources from Selected City -->
             <div class="sources">

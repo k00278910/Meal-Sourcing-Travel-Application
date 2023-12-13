@@ -7,15 +7,17 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 0;
+            padding: 5px;
             box-sizing: border-box;
             max-width: 1120px;
             margin: 0 auto;
-            border: 2px solid yellowgreen;
+            border: 2px solid black;
+            font-size: 16px;
+            background-color:#e0fbfc;
         }
 
         header {
-            background-color: #333;
+            background-color: #3d5a80;
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -25,7 +27,7 @@
         }
 
         nav {
-            background-color: #555;
+            background-color: #293241;
             overflow: hidden;
             display: flex;
             justify-content: flex-end;
@@ -37,6 +39,7 @@
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            font-size: 25px;
         }
 
         nav a:hover {
@@ -49,7 +52,7 @@
             flex-direction: column;
             cursor: pointer;
             order: 2;
-            font-size: 12px;
+            
         }
 
         .hamburger div {
@@ -58,135 +61,225 @@
             background-color: #fff;
             margin: 6px 0;
             transition: 0.4s;
+           
         }
 
-        main {
-            padding: 20px;
-        }
-
-        .content-location, .content-mealtime, .content-condition {
-            display: flex;
-            margin: 2rem 0;
-            flex-flow: row wrap;
-            background-color: #3ACBE8;
-            box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .location-image, .mealtime-image ,.condition-image {
-            border: 2px solid #3ACBE8;
-            /* text-align: center; */
-            display: flex;
-            /* flex-direction: column; */
-            justify-content: center;
-            align-items: center;
-        }
         
-
-        #flagImage, #mealtimeImage, #conditionImage {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .parent-location, .parent-mealtime, .parent-condition {
+        .selections {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            background-color: #98c1d9;
+            font-size: 20px;
+            flex-wrap: wrap;
             text-align: center;
-            flex: 1;
-            border: 2px solid white;
         }
-
-        .location-text, .mealtime-text, .condition-text {
-            color: white;
+        .selections h3 {
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
             text-align: center;
-            font-size: 25px;
-            border: 2px solid #3ACBE8;
-            flex: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 30px;
-        }
-        
-       
-        .location-menu, .mealtime-menu, .condition-menu {
-            font-size: 22px;
-            text-align: center;
-            border: 2px solid #3ACBE8;
-            padding-right: 5px;
-            padding-bottom: 30px;
-            flex: auto;
-            height: 130px;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
-
-        .location-menu label, .mealtime-menu label, .condition-menu label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            font-size: 22px;
-            color: #fff;
-        }
-
-        .location-menu input, .mealtime-menu input, .condition-menu input {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            font-size: 22px;
-            padding: 0 5px 0 5px;
-        }
-
-        .location-menu select, .mealtime-menu select, .condition-menu select {
-            /* width: 10em; */
-            margin-bottom: 10px;
-            margin-top: 10px;
-            font-size: 22px;
-            width: 70%;
-        }
-
-         .dropdown{
-            display: inline-block;
-            width: 70%;
-        } 
-
-        .dropdown button{
-            background-color: hsl(0, 0%, 80%);
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            font-size: 22px;
+            margin-bottom: 15px; 
+            flex:1;
+            text-transform: capitalize;
             
         }
 
-        .dropdown option{
-            display: block;
-            color: black;
-            text-decoration: none;
-            /* padding: 10px 10px; */
+        .controls {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; 
+            /* border: 3px solid brown;   */
+            margin-top: 15px;
+            box-sizing: border-box; 
+            width:300px ;
+            align-items: center;
+        }
+        
+        .controls h1 {
+            font-size: 15px;
+            padding: 5px;
+        }
+        .controls button {
+            font-size: 20px;
+            padding: 5px;
+            margin: 10px;
+            width: 150px;
+            width: 100px;
         }
 
-        .dropdown .content{
-            display: none;
-            position: absolute;
-            background-color: hsl(0, 0%, 95%);
-            /* min-width: 100px; */
-            box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+        .controls button:hover {
+            display: block; 
+            color: grey;
+            transition: all, 0.5s, ease;
+            border: 2px solid white; 
+            cursor: pointer;
+            transition: all, 0.5s, ease;
+            
         }
 
-        .dropdown:hover button{
-            background-color: hsl(0, 0%, 70%);
+        .container-select {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #98c1d9;
+            margin: auto;
+            /* border: 3px solid purple;   */
         }
 
-        .dropdown option:hover{
-            background-color: hsl(0, 0%, 90%);
+
+        /* Carousel Styling */
+        .carousel-body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px; 
+            background: rgb(204, 204, 204);
+            margin: auto;
+            /* border: 3px solid orange;   */
+            
+        }
+        .carousel{
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* border: 3px solid white; */
+            
+        }
+        .wrapper{
+            display: flex; 
+            transform: translateX(0);
+            transition: all 0.5s ease-in-out;
+            /* border: 3px solid blue; */
+            width: 100%;
+            height: 100%;    
         }
 
+        .wrapper img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* border-radius: 8px; */
+        }
+        
+        #meal-display{
+            font-size: 30px;
+            color: red;
+            /* border: 3px solid blue; */
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+
+        .information{
+            display: flex;
+            flex-wrap: wrap;
+            background: rgb(204, 204, 204);
+            background-color: #98c1d9;
+        }
+
+        .nutrition, .sources{
+            
+            border: 3px solid #fff;
+            width: 50%;
+            box-sizing: border-box; /* includes padding and border in the total width */
+            padding: 20px; 
+            flex: 1; /* Set flex property to allow flexible width */
+            border-collapse: collapse; 
+        }
+
+        .nutrition h1, .sources h1{
+            text-align: center; /* Center the text content horizontally */
+            /* border: 3px solid blue; */
+            font-size: 30px;
+        }
+
+        .nutrition table {
+            width: 100%;
+            border-collapse: collapse; 
+            margin-top: 10px; 
+        }
+
+        .nutrition th, .nutrition td {
+            padding: 8px;
+            border: 1px solid #ddd; 
+            text-align: center;
+        }
+
+
+
+        .nutrition h1 {
+            margin-bottom: 10px;
+        }
+        ul{
+            list-style-type: none; /* Remove default list styling */
+            /* border: 3px solid red;  */
+            font-size: 20px;
+           
+        }
+        .dropdown{
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            margin-bottom: 40px;
+            /* border: 3px solid green; */
+            text-align: center;
+            width: 100%;
+            
+        }
+        #city{
+            font-size: 20px;
+            /* border: 3px solid yellowgreen; */
+            width: 80%;  
+            margin-top: 20px;
+            /* padding-left: 5%; */
+           
+        }
+        
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .select {
+            /* margin-bottom: 20px; */
+            flex-wrap: wrap;
+        }
+
+         .carousel-body, .container-select, .information {
+            width: 100%;
+            box-sizing: border-box;
+            margin: auto;
+        }
+        
+
+        .controls button {
+            width: 80%; 
+            background-color: #3d5a80;
+            color: #fff;
+        }
+
+        .nutrition, .sources {
+            width: 60%;
+            /* box-sizing: border-box; */
+        }
+
+        ul li .restaurant,.restaurant-link{
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+           
+        }
+        
         footer {
-            background-color: #333;
+            background-color: #3d5a80;
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -194,10 +287,35 @@
             position: relative;
             bottom: 0;
             margin: 2rem 0 0 0;
+            font-size: 15px;
         }
 
-        @media screen and (max-width: 600px) {
-            nav {
+
+        /* Styles for laptops */
+        @media only screen and (max-width: 1366px) {
+        body {
+            font-size: 14px;
+           
+        }
+        }
+
+        /* Styles for tablets */
+        @media only screen and (max-width: 1024px) {
+        body {
+            font-size: 12px;
+            
+        }
+        }
+
+        /* Styles for mobile devices */
+        @media only screen and (max-width: 768px) {
+        body {
+            font-size: 10px;
+           
+            
+        }
+
+        nav {
                 display: none;
                 flex-direction: column;
                 width: 100%;
@@ -216,13 +334,62 @@
             .hamburger {
                 display: flex;
             }
-            .location-menu select, .mealtime-menu select, .condition-menu select {
-            margin-bottom: 10px;
-            margin-top: 10px;
-            font-size: 12px;
+            .selections{
+                display: block; 
+            }
+        }
+
+        /* Galaxy Fold styles */
+        @media only screen and (max-width: 400px) {
+        .controls {
+            flex-direction: column;
+            width: 70%;
+        }
+    }
+
+        /* Galaxy Fold styles */
+        @media only screen and (max-width: 280px) {
+        body {
+            font-size: 8px;
+            
+        }
+            
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                order: 1;
+            }
+        
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+            .selections{
+            display: block;
+            font-size: 12px; 
+            padding-top: 5px;
+        }
+        .information h1{
+            font-size: 20px;
+        }
+        table{
+          
             width: 90%;
         }
+
         }
+        
+        
+
     </style>
 </head>
 <body>
@@ -238,78 +405,115 @@
     </header>
 
     <nav id="navbar">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
     </nav>
 
     <main>
-          <div class="content-location">
-            <div class="location-image">
-                <img id="flagImage" src="images/travel.png" alt="Flag Image">
+            <!-- Section for meal options -->
+        <section class="select"> <!-- section for carousel display -->
+            <!-- User selection display -->
+            <div class="selections">
+            <h3 id="country-heading">Country</h3>
+            <h3 id="condition-heading">Condition</h3>
+            <h3 id="mealtime-heading">Mealtime</h3>
             </div>
-            <div class="parent-location">
-                <div class="location-text">
-                    <h3>Location:</h3>
-                </div>
-                <div class="location-menu">
-                    <div class="dropdown">
-                        <select id="country" size=3 onchange="selectedLocation()">
-                            <option value="spain">Spain</option>
-                            <option value="germany">Germany</option>
-                            <option value="italy">Italy</option>
-                        </select>
-                    </div>
-                </div>
+            <!-- Carousel of Meal Display Images -->
+            <div class="carousel-body">
+            <div class="carousel">
+                <div id="images" class="wrapper">
+                <img src="/images/0.jpg" id="meal-image" alt="">
+                </div> 
             </div>
-        </div>
+            </div>
+            <!-- User selection controls -->
+            <div class="container-select">
+            <div class="controls">
+                <button id="previous-meal">Previous</button>
+                <button id="next-meal">Next Option</button>
+            </div>
+            <!-- Resultant Meal Displayed Text -->
+            <h1 id="meal-display">Meal Display</h1>  
+            </div>
 
-        <div class="content-mealtime">
-            <div class="mealtime-image">
-                <img id="mealtimeImage" src="images/mealtime.png" alt="Mealtime Image">
-            </div>
-            <div class="parent-mealtime">
-                <div class="mealtime-text">
-                    <h3>Mealtime:</h3>
-                </div>
-                <div class="mealtime-menu">
-                    <div class="dropdown">
-                        <select id="mealtime" size=3 onchange="selectedMealtime()">
-                          <option value="breakfast">Breakfast</option>
-                          <option value="lunch">Lunch</option>
-                          <option value="dinner">Dinner</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <div class="content-condition">
-            <div class="condition-image">
-                <img id="conditionImage" src="images/pulse-green.png" alt="Condition Image">
+        <section class="information"> <!-- section for nutrition & sources information display -->
+            <!-- Display Nutritional content -->
+            <div class="nutrition">
+              <!-- From myFitnessPal (use restful API connection later) -->
+              <h1>Nutritional Content</h1>
+              <table>
+                <tr>
+                    <th></th>
+                    <th>Amount (g)</th>
+                    <th>Percentage (%)</th>
+                </tr>
+                <tr>
+                    <th>Serving</th>
+                    <td><!-- Serving content --></td>
+                    <td><!-- Serving percentage content --></td>
+                </tr>
+                <tr>
+                    <th>Carbs</th>
+                    <td><!-- Carbs content --></td>
+                    <td><!-- Carbs percentage content --></td>
+                </tr>
+                <tr>
+                  <th>Total Fat</th>
+                  <td><!-- Carbs content --></td>
+                  <td><!-- Carbs percentage content --></td>
+                </tr>
+                <tr>
+                    <th>Saturated Fat</th>
+                    <td><!-- Carbs content --></td>
+                    <td><!-- Carbs percentage content --></td>
+                </tr>
+                <tr>
+                    <th>Protein</th>
+                    <td><!-- Carbs content --></td>
+                    <td><!-- Carbs percentage content --></td>
+                </tr>
+                <tr>
+                    <th>Cholesterol</th>
+                    <td><!-- Carbs content --></td>
+                    <td><!-- Carbs percentage content --></td>
+                </tr>
+                <tr>
+                    <th>Total Sugar</th>
+                    <td><!-- Carbs content --></td>
+                    <td><!-- Carbs percentage content --></td>
+                </tr>
+          
+                
+            </table>
             </div>
-            <div class="parent-condition">
-                <div class="condition-text">
-                    <h3>Beneficial to:</h3>
-                </div>
-                <div class="condition-menu">
-                    <div class="dropdown">
-                        <select id="condition" size=3 onchange="selectedCondition()">
-                            <option value="cholesterol">Cholesterol</option>
-                            <option value="skin">Skin</option>
-                            <option value="hair">Hair</option>
-                        </select>
-                    </div>
-                </div>
+            <!-- Display Meal Sources from Selected City -->
+            <div class="sources">
+              <h1>Source Meal</h1>
+              <div class="dropdown">
+                <select id="city" size=3 onchange="selectedCity()">
+                  <option value="madrid">Madrid</option>
+                  <option value="barcelona">Barcelona</option>
+                  <option value="valencia">Valencia</option>
+                </select>
+              </div>
+                <ul>
+                  <li class="restaurant">Restaurant</li>
+                  <li class="restaurant-link">Restaurant Link</li>
+                </ul>
             </div>
-        </div>
-
-        <button id="mealSelectButton" onclick=goToMealPage()>VIEW MEALPAGE</button>
+        
+        </section>
     </main>
-
 
     <footer>
         <p>&copy; 2023 hungryhoot.com. All rights reserved.</p>
     </footer>
-    <script src="/js/index.js"></script>
+    <script src="/js/test.js"></script>
    
 </body>
 </html>
+
+
+
