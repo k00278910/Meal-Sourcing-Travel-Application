@@ -279,11 +279,12 @@
             /* box-sizing: border-box; */
         }
 
-        ul li .restaurant,.restaurant-link{
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-           
+        #city-display{
+            font-size: 30px;
+            color: red;
+            /* border: 3px solid blue; */
+            text-align: center;
+            text-transform: capitalize;
         }
         
         footer {
@@ -297,7 +298,15 @@
             margin: 2rem 0 0 0;
             font-size: 15px;
         }
-
+        .restaurant-source{
+            border: 2px solid white;
+            
+        }
+        #city-display, #restaurant-display, #link-display{
+            font-size: 20px;
+            color: #293241;
+        }
+        
 
         /* Styles for laptops */
         @media only screen and (max-width: 1366px) {
@@ -403,7 +412,9 @@
 <body>
 
     <header>
+        <a href="index.html"></a>
         <img src="images/hungryhoot-logo.png" alt="Your Logo" style="height: 8rem; width: 8rem;">
+        </a>
         <h1></h1>
         <div class="hamburger" onclick="toggleNav()">
             <div></div>
@@ -418,6 +429,7 @@
     </nav>
 
     <main>
+        
             <!-- Section for meal options -->
         <section class="select"> <!-- section for carousel display -->
             <!-- User selection display -->
@@ -453,22 +465,29 @@
               <h1>Nutritional Content</h1>
               <h1 id="meal-nutrition">Meal Nutrition</h1>
               <div id="table-container"></div>  
-              <!-- table containing nutritional content is created in mealpage.js -->
             </div>
+
             <!-- Display Meal Sources from Selected City -->
             <div class="sources">
               <h1>Source Meal</h1>
               <div class="dropdown">
-                <select id="city" size=3 onchange="selectedCity()">
+                <select id="city" size=3 onchange="displayPair()">
                   <option value="madrid">Madrid</option>
                   <option value="barcelona">Barcelona</option>
                   <option value="valencia">Valencia</option>
                 </select>
               </div>
-                <ul>
-                  <li class="restaurant">Restaurant</li>
-                  <li class="restaurant-link">Restaurant Link</li>
-                </ul>
+
+                <div class="restaurant-source">
+                    <!-- Selected City -->
+                    <h1 id="city-display">City</h1>  
+                    <!-- Resultant Restaurant Displayed Text -->
+                    <h1 id="restaurant-display">Restaurant</h1>  
+                    <!-- Resultant Restaurant Displayed Link -->
+                    <!-- <a id="link-display">Restaurant Link</a>  -->
+                    <a id="link-display" href="#">Link</a>
+                </div>
+                 
             </div>
         
         </section>

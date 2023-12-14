@@ -25,7 +25,49 @@ var germany_meal = [{country:"germany",condition:"cholesterol",mealtime:"breakfa
 var italy_meal = [{country:"italy",condition:"cholesterol",mealtime:"breakfast",meal1:"fette-biscottate"},
                   {country:"italy",condition:"cholesterol",mealtime:"lunch",meal1:"insalata-caprese"},
                   {country:"italy",condition:"cholesterol",mealtime:"dinner",meal1:"melanzane-alla-parmigiana"}];
- 
+
+var spain_source = [
+                  {country:"spain",condition:"cholesterol",mealtime:"breakfast",city:"madrid",source:["Frida","Frida","Bodegas La Ardosa"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"cholesterol",mealtime:"lunch",city:"madrid",source:["InClan Brutal Bar","El Puchero","Arrocería Marina Ventura"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"cholesterol",mealtime:"dinner",city:"madrid",source:["Lambuzo","Casa Dani","Casa Revuelta"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  {country:"spain",condition:"skin",mealtime:"breakfast",city:"madrid",source:["Frida","Frida","Bodegas La Ardosa"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"skin",mealtime:"lunch",city:"madrid",source:["InClan Brutal Bar","El Puchero","Arrocería Marina Ventura"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"skin",mealtime:"dinner",city:"madrid",source:["Lambuzo","Casa Dani","Casa Revuelta"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  {country:"spain",condition:"hair",mealtime:"breakfast",city:"madrid",source:["Frida","Frida","Bodegas La Ardosa"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"hair",mealtime:"lunch",city:"madrid",source:["InClan Brutal Bar","El Puchero","Arrocería Marina Ventura"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"hair",mealtime:"dinner",city:"madrid",source:["Lambuzo","Casa Dani","Casa Revuelta"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+
+                  {country:"spain",condition:"cholesterol",mealtime:"breakfast",city:"barcelona",source:["BarcaBreakc1","BarcaBreakc2","BarcaBreakc3"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"cholesterol",mealtime:"lunch",city:"barcelona",source:["BarcaLunchc1","BarcaLunchc2","BarcaLunchc3"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"cholesterol",mealtime:"dinner",city:"barcelona",source:["BarcaDinnerc1","BarcaDinnerc2","BarcaDinnerc3"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  {country:"spain",condition:"skin",mealtime:"breakfast",city:"barcelona",source:["BarcaBreaks1","BarcaBreaks2","BarcaBreaks3"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"skin",mealtime:"lunch",city:"barcelona",source:["BarcaLunchs1","BarcaLunchs2","BarcaLunchs3"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"skin",mealtime:"dinner",city:"barcelona",source:["BarcaDinners1","BarcaDinners2","BarcaDinners3"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  {country:"spain",condition:"hair",mealtime:"breakfast",city:"barcelona",source:["BarcaBreakh1","BarcaBreakh2","BarcaBreakh3"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"hair",mealtime:"lunch",city:"barcelona",source:["BarcaLunchh1","BarcaLunchh2","BarcaLunchh3"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"hair",mealtime:"dinner",city:"barcelona",source:["BarcaDinnerh1","BarcaDinnerh2","BarcaDinnerh3"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+
+                  {country:"spain",condition:"cholesterol",mealtime:"breakfast",city:"valencia",source:["ValBreakc1","ValBreakc2","ValBreakc3"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"cholesterol",mealtime:"lunch",city:"valencia",source:["ValLunchc1","ValLunchc2","ValLunchc3"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"cholesterol",mealtime:"dinner",city:"valencia",source:["ValLunchc1","ValLunchc2","ValLunchc3"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  {country:"spain",condition:"skin",mealtime:"breakfast",city:"valencia",source:["ValBreakS1","ValBreakS2","ValBreakS3"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"skin",mealtime:"lunch",city:"valencia",source:["ValBreakS1","ValBreakS2","ValBreakS3"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"skin",mealtime:"dinner",city:"valencia",source:["ValBreakS1","ValBreakS2","ValBreakS3"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  {country:"spain",condition:"hair",mealtime:"breakfast",city:"valencia",source:["ValBreakH1","ValBreakH2","ValBreakH3"],link:["https://larrumba.com/restaurantes/frida/","https://larrumba.com/restaurantes/frida/","https://grupoardosa.es/la-ardosa/"]},
+                  {country:"spain",condition:"hair",mealtime:"lunch",city:"valencia",source:["ValBreakH1","ValBreakH2","ValBreakH3"],link:["https://inclanbrutalbar.com/","https://elpuchero.com/","https://arroceriaventura.es/"]},
+                  {country:"spain",condition:"hair",mealtime:"dinner",city:"valencia",source:["ValBreakH1","ValBreakH2","ValBreakH3"],link:["https://www.barlambuzo.com/carta/","https://www.casadani.es/","https://www.casarevuelta.com/"]},
+                 
+                  
+  ];
+                  
  
  // Function to extract the country and location from the URL query parameters
 function getParamsFromUrl() {
@@ -36,6 +78,7 @@ function getParamsFromUrl() {
     mealtime: urlParams.get('mealtime')
   };
 }
+
 
 // Update the paragraphs with the selected country and location
 var params = getParamsFromUrl();
@@ -52,6 +95,13 @@ var mealnameObject; // object stores mealname
 var objectLength=0;// entire amount of properties in meal object
 var objectMealQty=0;// amount of meals in meal object
 
+var stringSourceArray; // name of source array
+var sourceArray;// array of source objects
+var sourceIndex=0; //meal object
+var sourceObject; // object stores sources
+var sourceObjectLength=0;// entire amount of properties in source object
+var objectSourceQty=0;// amount of sources in source object
+var selectedCityValue;
 
 // set heading as selected options
 document.getElementById("country-heading").innerText = params.country || 'Country';
@@ -61,6 +111,33 @@ document.getElementById("mealtime-heading").innerText = params.mealtime || 'Meal
 if(country&&condition&&mealtime){
 stringSelectedCountryArray=country + "_meal";
 selectedCountryArray = window[country + "_meal"]; 
+
+stringSourceArray=country + "_source"; 
+sourceArray = window[country + "_source"]; // contains object for city,restaurant & link
+console.log(sourceArray);
+
+// Function to be called when the city is selected
+function selectedCity(currentIndex) {
+  var selectedIndex = currentIndex;
+  //alert("Selected index Function: " + selectedIndex);
+  var cityDropdown = document.getElementById("city");
+  selectedCityValue = cityDropdown.value;
+  console.log(`*Source Array ${sourceArray}`);
+  // source array contains 6 key-object pairs
+  // each contains properties: country-condition-mealtime-city-source[]-link[]
+  if (sourceArray) {
+    sourceArray.forEach(function (obj, sourceIndex) {
+      if (obj.city === selectedCityValue && obj.condition === condition && obj.mealtime === mealtime) {
+        document.getElementById("city-display").innerText = obj.city;
+        document.getElementById("restaurant-display").innerText = obj.source[selectedIndex];
+        //document.getElementById("link-display").innerText = obj.link[selectedIndex];
+        document.getElementById("link-display").setAttribute("href", obj.link[selectedIndex],target="_blank");
+      }
+    });
+  }
+}
+
+
 
 // ** find qty of meals in selected meal array **
 if (selectedCountryArray) { //selectedCountryArray is the array of objects
@@ -109,7 +186,7 @@ var spain_nutrition = [
   ["350","N/A","7.80","3","9.00","10","1","5","5.00","6","0","0","0","0"] ,["175","N/A","19","7","20.80","27","2.90","15","16.00","18","0","0","2.0","3"]]}
 
 ];
-// ******* Ensure that qty of images equals qty of meals
+
 var imageObject; // array of images 
 var imageObjectLength=0;// entire amount of properties in Image array
 var objectImageQty=0;// amount of images in object
@@ -135,7 +212,7 @@ if (!(imageObjectLength === objectMealQty)) {
 }else{
   //alert('images equal meal options!');
 }
-// ******* Ensure that qty of Nutrition arrays equals qty of meals
+
 var nutritionObject; // array of nutrition objects 
 var nutritionObjectLength=0;// entire amount of properties(1d-arrays+strings) in nutrition array
 var objectNutritionQty=0;// amount of nutrition arrays in object, strings removed
@@ -161,13 +238,7 @@ if (!(nutritionObjectLength === objectMealQty)) {
 }else{
   //alert('nutrition info qty equal meal options!');
 }
-// *******************
 
-// two arrays
-// mealnameObject . this is array of meals
-//imageObject , this is the array of images
-//nutritionObject , this is the array of nutrition objects
-// *** pending: source object ***
 let currentIndex = 0;
 
 // function to display a single pair
@@ -178,7 +249,8 @@ function displayPair() {
   let dataArray = [];
 
   selectedCountryArray.forEach((currentMeal) => {
-  if (currentMeal.mealtime === mealtime && currentMeal.condition === condition){   
+  if (currentMeal.mealtime === mealtime && currentMeal.condition === condition){ 
+
     meal=currentMeal["meal" + currentIndex];
     document.getElementById("meal-display").innerText = meal;
     document.getElementById("meal-image").src = mealImage;
@@ -199,11 +271,18 @@ function displayPair() {
     // append new table
     const table = createTableFromObjects(dataArray);
     tableContainer.appendChild(table); 
+
+    // must display source restaurant for selection
+    // ********************************************
+    selectedCity(currentIndex);
+    
   }
   
   });
-}
+} // end displayPair function
+
  displayPair();
+ 
  // Create table for Nutritional Display
 function createTableFromObjects(data) {
   const table = document.createElement('table');
@@ -228,9 +307,8 @@ function createTableFromObjects(data) {
     }
     table.appendChild(dataRow);
   }
-
   return table;
-}
+} // End function createTableFromObjects
 
 // event listener for next button
 document.getElementById('next-meal').addEventListener('click', () => {
